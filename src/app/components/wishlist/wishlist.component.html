@@ -1,0 +1,34 @@
+<section class="my-5">
+  <h2>Favorite Product</h2>
+  <div class="row g-4 ">
+    <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12" *ngFor="let item of products.slice(0,20)"> -->
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12" *ngFor="let item of products">
+      <div class="product  p-2">
+        <!-- WishList -->
+        <!-- <i *ngIf="!wishListData.includes($any(item._id))" (click)="addFav(item._id)"
+          class="fa-regular fa-heart heart "></i> -->
+        <i *ngIf="wishListData.includes($any(item._id))" (click)="removeFav(item._id)"
+          class="fa-solid fa-x heart font-sm rem"></i>
+        <!-- Product -->
+        <div class="cursor-pointer" [routerLink]='["/details" ,item._id]'>
+          <img [src]="item.imageCover" class="w-100 mb-2" [alt]="item.title">
+          <h3 class="h6">{{item.category.name}}</h3>
+          <h4 class="h6">{{item.title | termtext }}</h4>
+          <div>
+            <div class="d-flex justify-content-between align-items-center par small">
+              <span class="">{{item.price | currency:"E£"}} </span>
+
+              <span class="mb-0 font-sm"><i [class.rating-color]="item.ratingsAverage >= num"
+                  *ngFor="let num of [1,2,3,4,5]" class="fas fa-star font-sm "></i>
+                <span class="text-muted">{{ item.ratingsAverage }}</span>
+              </span>
+            </div>
+
+          </div>
+        </div>
+        <button (click)="addCart(item._id)" class="btn-main w-100">Add To Cart </button>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,14 @@
+<section *ngIf="brandDetails" class="modal-dialog">
+  <div class="row align-items-center g-4">
+    <div class="col-md-4">
+      <div>
+        <img class="w-100 rounded" [src]="brandDetails.image" [alt]="brandDetails.name" />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div>
+        <h3>{{ brandDetails.name }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
